@@ -5,4 +5,6 @@ ENV SA_PASSWORD=abcDEF123$
 ENV MSSQL_PID=Developer
 ENV MSSQL_TCP_PORT=1433
 
+ADD --chmod=777 Healthcheck.sh .
+
 ENTRYPOINT ["/opt/mssql/bin/sqlservr", "--accept-eula"]

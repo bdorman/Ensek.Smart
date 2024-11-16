@@ -4,8 +4,15 @@ services:
     build:
       context: /Database
       dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD", "bash", "./Healthcheck.sh"]
+      interval: 1s
+      retries: 60
 
   ensek.smart.api:
+    depends_on:
+        ensek.smart.database:
+            condition: service_healthy
     image: ${DOCKER_REGISTRY-}enseksmartapi
     build:
       context: ../.

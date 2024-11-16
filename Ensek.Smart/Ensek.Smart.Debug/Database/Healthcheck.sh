@@ -1,0 +1,1 @@
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U SA -P $SA_PASSWORD -C -Q "Select 1"

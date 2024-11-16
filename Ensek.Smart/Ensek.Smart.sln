@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensek.Smart.Api", "Ensek.Smart.Api\Ensek.Smart.Api.csproj", "{F84D1A84-EE34-4917-9A80-F8AC6506AFEB}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "Ensek.Smart.Debug\docker-compose.dcproj", "{5E3ADC1B-C52E-4CBF-9DA4-5DA0363A306D}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "debug-docker-compose", "Ensek.Smart.Debug\debug-docker-compose.dcproj", "{5E3ADC1B-C52E-4CBF-9DA4-5DA0363A306D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

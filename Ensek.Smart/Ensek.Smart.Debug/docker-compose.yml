@@ -1,0 +1,12 @@
+services:
+  ensek.smart.database:
+    image: ${DOCKER_REGISTRY-}enseksmartdatabase
+    build:
+      context: /Database
+      dockerfile: Dockerfile
+
+  ensek.smart.api:
+    image: ${DOCKER_REGISTRY-}enseksmartapi
+    build:
+      context: ../.
+      dockerfile: Ensek.Smart.Api/Dockerfile

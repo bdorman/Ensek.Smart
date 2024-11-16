@@ -1,6 +1,0 @@
-services:
-  ensek.smart.api:
-    image: ${DOCKER_REGISTRY-}enseksmartapi
-    build:
-      context: .
-      dockerfile: Ensek.Smart.Api/Dockerfile

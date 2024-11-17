@@ -24,7 +24,7 @@ namespace Ensek.Smart.Api.Controller
                 }
 
                 var account = smartDatabaseContext.Accounts.SingleOrDefault(x => x.AccountId == meterReading.AccountId);
-                if (account == null || account.MeterReadings.Any(existing => existing.MeterReadingDateTime >= meterReading.MeterReadingDateTime))
+                if (account == null || smartDatabaseContext.MeterReadings.Any(existing => existing.AccountId == meterReading.AccountId && existing.MeterReadingDateTime >= meterReading.MeterReadingDateTime))
                 {
                     results.Failure++;
                     continue;

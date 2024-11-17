@@ -10,10 +10,14 @@
     <DockerServiceName>ensek.smart.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
-    <None Include=".env" />
-    <None Include="DatabaseMigration\Dockerfile" />
-    <None Include="Database\healthcheck.sh" />
-    <None Include="docker-compose.yml" />
     <None Include="Database\Dockerfile" />
+    <None Include="Database\healthcheck.sh" />
+    <None Include="DatabaseInit\Dockerfile" />
+    <None Include="DatabaseInit\healthcheck.sh" />
+    <None Include="DatabaseInit\init.sh" />
+    <None Include="DatabaseInit\init.sql" />
+    <None Include="DatabaseMigration\Dockerfile" />
+    <None Include="docker-compose.yml" />
+    <None Include=".env" />
   </ItemGroup>
 </Project>

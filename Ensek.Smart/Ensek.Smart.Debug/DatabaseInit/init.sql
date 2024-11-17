@@ -1,2 +1,5 @@
-CREATE DATABASE [Smart]
+IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'Smart')
+BEGIN
+	CREATE DATABASE [Smart]
+END
 GO

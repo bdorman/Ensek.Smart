@@ -8,7 +8,7 @@
 
         public DateTime MeterReadingDateTime { get; set; }
 
-        public int MeterReadValue { get; set; }
+        public string MeterReadValue { get; set; } = null!;
 
         public Account Account { get; set; } = null!;
     }

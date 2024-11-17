@@ -66,6 +66,10 @@ namespace Ensek.Smart.Data
 
                 model.HasKey(m => m.MeterReadingId);
 
+                model.Property(m => m.MeterReadValue)
+                    .IsFixedLength(true)
+                    .HasMaxLength(5);
+
                 model.HasOne(m => m.Account)
                     .WithMany(a => a.MeterReadings)
                     .HasForeignKey(m => m.AccountId)

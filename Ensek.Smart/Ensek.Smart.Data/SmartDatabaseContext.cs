@@ -7,23 +7,29 @@ namespace Ensek.Smart.Data
     {
         public required DbSet<Account> Accounts { get; set; }
 
+        public required DbSet<MeterReading> MeterReadings { get; set; }
+
+        public SmartDatabaseContext() { }
+
+        public SmartDatabaseContext(DbContextOptions<SmartDatabaseContext> options) : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer("");
             }
-
-            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Account>(a =>
+            modelBuilder.Entity<Account>(model =>
             {
-                a.HasKey(x => x.AccountId);
+                model.ToTable("Account");
 
-                a.HasData(
+                model.HasKey(a => a.AccountId);
+
+                model.HasData(
                     new Account() { AccountId = 2344, FirstName = "Tommy", LastName = "Test" },
                     new Account() { AccountId = 2233, FirstName = "Barry", LastName = "Test" },
                     new Account() { AccountId = 8766, FirstName = "Sally", LastName = "Test" },
@@ -52,6 +58,18 @@ namespace Ensek.Smart.Data
                     new Account() { AccountId = 1247, FirstName = "Jim", LastName = "Test" },
                     new Account() { AccountId = 1248, FirstName = "Pam", LastName = "Test" }
                 );
+            });
+
+            modelBuilder.Entity<MeterReading>(model =>
+            {
+                model.ToTable("MeterReading");
+
+                model.HasKey(m => m.MeterReadingId);
+
+                model.HasOne(m => m.Account)
+                    .WithMany(a => a.MeterReadings)
+                    .HasForeignKey(m => m.AccountId)
+                    .IsRequired();
             });
         }
     }

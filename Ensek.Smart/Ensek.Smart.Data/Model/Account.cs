@@ -4,8 +4,10 @@
     {
         public int AccountId { get; set; }
 
-        public required string FirstName { get; set; }
+        public string FirstName { get; set; } = null!;
 
-        public required string LastName { get; set; }
+        public string LastName { get; set; } = null!;
+
+        public ICollection<MeterReading> MeterReadings { get; } = new List<MeterReading>();
     }
 }

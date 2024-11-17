@@ -1,6 +1,6 @@
 using Ensek.Smart.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
+using Ensek.Smart.Api.Service;
 
 namespace Ensek.Smart.Api
 {
@@ -8,15 +8,15 @@ namespace Ensek.Smart.Api
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);           
+            var builder = WebApplication.CreateBuilder(args);
+            var connectionString = builder.Configuration.GetConnectionString("SmartDatabase");
 
             builder.Services.AddControllers();
-
-            var connectionString = builder.Configuration.GetConnectionString("SmartDatabase");
-            builder.Services.AddDbContextFactory<SmartDatabaseContext>(o => o.UseSqlServer(connectionString), ServiceLifetime.Scoped);
-
+            builder.Services.AddDbContext<SmartDatabaseContext>(opts => opts.UseSqlServer(connectionString));
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<ICsvService, CsvService>();
 
             var app = builder.Build();
             if (app.Environment.IsDevelopment())

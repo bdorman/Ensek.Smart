@@ -1,0 +1,1 @@
+/opt/mssql-tools18/bin/sqlcmd -S host.docker.internal -U SA -P $SA_PASSWORD -C -Q "USE [Smart]; Select 1"

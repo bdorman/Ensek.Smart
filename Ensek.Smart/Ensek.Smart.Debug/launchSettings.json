@@ -5,6 +5,9 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "ensek.smart.api": "StartDebugging"
+      },
+      "environmentVariables": {
+        "MSSQL_SA_PASSWORD": "abcDEF123$"
       }
     }
   }
